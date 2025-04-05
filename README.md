@@ -1,18 +1,32 @@
+# SDL_image but with the zig build system
 
-SDL_image 3.0
+This is a port of [SDL_image](https://github.com/libsdl-org/SDL_image) to the zig build system, to use it with the zig package manager.
 
-This is a simple library to load images of various formats as SDL surfaces.
-It can load BMP, GIF, JPEG, LBM, PCX, PNG, PNM (PPM/PGM/PBM), QOI, TGA, XCF, XPM, and simple SVG format images. It can also load AVIF, JPEG-XL, TIFF, and WebP images, depending on build options.
+This is ***not*** a wrapper.
 
-The latest version of this library is available from GitHub:
-https://github.com/libsdl-org/SDL_image/releases
+## Usage
 
-Installation instructions and a quick introduction is available in
-[INSTALL.md](INSTALL.md)
+Requires zig version `0.14.0`, higher versions not tested.
 
-This library is distributed under the terms of the zlib license,
-available in [LICENSE.txt](LICENSE.txt).
+Fetch it with:
+```bash
+zig fetch --save git+https://github.com/IbrahimOuhamou/SDL_image.git
+```
 
-Enjoy!
+And link it in your `build.zig`:
+```zig
+{
+    // SDL_image Dependency
+    const sdl_image_dep = b.dependency("sdl_image", .{
+        .target = target,
+        .optimize = optimize,
+    });
+    const sdl_image_lib = sdl_image_dep.artifact("SDL_image");
 
-Sam Lantinga (slouken@libsdl.org)
+    exe_mod.linkLibrary(sdl_image_lib);
+}
+```
+
+> [!NOTE]
+> This was only tested on NixOS (wayland) with 0.14.0 for my personal use
+
