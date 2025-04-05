@@ -1,3 +1,6 @@
+zig-out/
+.zig-cache/
+
 build/
 buildbot/
 /VERSION.txt
