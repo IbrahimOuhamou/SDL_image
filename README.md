@@ -1,3 +1,4 @@
+بسم الله الرحمن الرحيم
 # SDL_image but with the zig build system
 
 This is a port of [SDL_image](https://github.com/libsdl-org/SDL_image) to the zig build system, to use it with the zig package manager.
