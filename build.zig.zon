@@ -1,6 +1,6 @@
 .{
     .name = .sdl_image,
-    .fingerprint = 0xbcacdc639198f171,
+    .fingerprint = 0xc9572a0e3891b52d,
     .version = "0.0.0",
     .minimum_zig_version = "0.14.0",
 
